@@ -169,8 +169,8 @@ This implementation plan breaks down the creation of the 7-day (extended to 10-d
     - Write TROUBLESHOOTING.md with practice UI issues
     - _Requirements: 4.1, 4.2, 4.3, 4.4, 4.5, 10.1, 10.2, 10.3, 10.4, 10.5_
 
-- [-] 16. Create Day 8 tutorial - Schedule generation (Backend)
-  - [-] 16.1 Create day-08-schedule-generation folder for Tushar
+- [x] 16. Create Day 8 tutorial - Schedule generation (Backend)
+  - [x] 16.1 Create day-08-schedule-generation folder for Tushar
     - Write README.md explaining Gemini schedule generation, priorities, adaptive rescheduling
     - Write PROMPTS.md with prompts for advanced scheduler
     - Write CONFIGURATION.md with scheduler setup

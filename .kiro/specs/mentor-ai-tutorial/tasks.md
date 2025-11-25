@@ -181,8 +181,8 @@ This implementation plan breaks down the creation of the 7-day (extended to 10-d
     - Write TROUBLESHOOTING.md with scheduling issues
     - _Requirements: 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13_
 
-- [ ] 17. Create Day 8 tutorial - Parent dashboard (Frontend)
-  - [ ] 17.1 Create day-08-parent-dashboard folder for Vaishnavi
+- [x] 17. Create Day 8 tutorial - Parent dashboard (Frontend)
+  - [x] 17.1 Create day-08-parent-dashboard folder for Vaishnavi
     - Write README.md explaining parent view, progress monitoring, insights
     - Write PROMPTS.md with prompts for parent dashboard components
     - Write CONFIGURATION.md with dashboard layout setup
@@ -192,7 +192,7 @@ This implementation plan breaks down the creation of the 7-day (extended to 10-d
     - Write TROUBLESHOOTING.md with dashboard issues
     - _Requirements: 22.1, 22.2, 22.3, 22.4, 22.5, 22.6, 22.7, 22.8, 22.9, 22.10_
 
-- [ ] 18. Create Day 9 tutorial - Payment integration (Backend)
+- [-] 18. Create Day 9 tutorial - Payment integration (Backend)
   - [ ] 18.1 Create day-09-payment-integration folder for Tushar
     - Write README.md explaining Razorpay, payment flow, subscription management
     - Write PROMPTS.md with prompts for payment service

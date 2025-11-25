@@ -1,0 +1,446 @@
+{
+  "authentication": {
+    "register_parent_email": {
+      "endpoint": "POST /api/auth/register/parent",
+      "description": "Register a new parent account with email",
+      "request": {
+        "email": "parent@example.com",
+        "password": "SecurePass123!",
+        "language": "en",
+        "phone": "+919876543210"
+      },
+      "expected_response": {
+        "parent_id": "parent_abc123",
+        "email": "parent@example.com",
+        "verification_required": true,
+        "message": "Verification email sent"
+      }
+    },
+    "register_parent_google": {
+      "endpoint": "POST /api/auth/register/parent/google",
+      "description": "Register a new parent account with Google OAuth",
+      "request": {
+        "id_token": "google_oauth_token_here",
+        "language": "en"
+      },
+      "expected_response": {
+        "parent_id": "parent_xyz789",
+        "email": "parent@gmail.com",
+        "verification_required": false,
+        "message": "Registration successful"
+      }
+    },
+    "login_parent": {
+      "endpoint": "POST /api/auth/login/parent",
+      "description": "Login existing parent account",
+      "request": {
+        "email": "parent@example.com",
+        "password": "SecurePass123!"
+      },
+      "expected_response": {
+        "parent_id": "parent_abc123",
+        "access_token": "jwt_token_here",
+        "refresh_token": "refresh_token_here",
+        "expires_in": 3600
+      }
+    },
+    "verify_email": {
+      "endpoint": "POST /api/auth/verify-email",
+      "description": "Verify parent email with code",
+      "request": {
+        "parent_id": "parent_abc123",
+        "verification_code": "123456"
+      },
+      "expected_response": {
+        "verified": true,
+        "message": "Email verified successfully"
+      }
+    }
+  },
+  "onboarding": {
+    "save_preferences": {
+      "endpoint": "POST /api/onboarding/preferences",
+      "description": "Save parent preferences",
+      "request": {
+        "parent_id": "parent_abc123",
+        "language": "en",
+        "notification_preferences": {
+          "email": true,
+          "sms": true,
+          "push": false
+        },
+        "timezone": "Asia/Kolkata"
+      },
+      "expected_response": {
+        "success": true,
+        "message": "Preferences saved successfully"
+      }
+    },
+    "create_child_profile": {
+      "endpoint": "POST /api/onboarding/child-profile",
+      "description": "Create child profile",
+      "request": {
+        "parent_id": "parent_abc123",
+        "child_name": "Rahul Kumar",
+        "age": 17,
+        "grade": 12,
+        "school_name": "Delhi Public School"
+      },
+      "expected_response": {
+        "child_id": "child_def456",
+        "child_name": "Rahul Kumar",
+        "message": "Child profile created successfully"
+      }
+    },
+    "select_exam": {
+      "endpoint": "POST /api/onboarding/exam-selection",
+      "description": "Select exam and schedule diagnostic test",
+      "request": {
+        "child_id": "child_def456",
+        "exam_type": "JEE",
+        "exam_date": "2025-05-24",
+        "target_score": 250,
+        "current_preparation_level": "intermediate"
+      },
+      "expected_response": {
+        "exam_id": "exam_ghi789",
+        "exam_type": "JEE",
+        "days_until_exam": 180,
+        "diagnostic_test_scheduled": true,
+        "diagnostic_test_id": "test_jkl012"
+      }
+    }
+  },
+  "diagnostic_test": {
+    "generate_test": {
+      "endpoint": "POST /api/diagnostic/generate",
+      "description": "Generate diagnostic test for student",
+      "request": {
+        "child_id": "child_def456",
+        "exam_type": "JEE",
+        "subjects": ["Physics", "Chemistry", "Mathematics"]
+      },
+      "expected_response": {
+        "test_id": "test_jkl012",
+        "total_questions": 200,
+        "duration_minutes": 180,
+        "subjects": {
+          "Physics": 60,
+          "Chemistry": 60,
+          "Mathematics": 80
+        },
+        "message": "Diagnostic test generated successfully"
+      }
+    },
+    "get_test_questions": {
+      "endpoint": "GET /api/diagnostic/test/{test_id}/questions",
+      "description": "Get questions for a diagnostic test",
+      "request": {
+        "test_id": "test_jkl012"
+      },
+      "expected_response": {
+        "test_id": "test_jkl012",
+        "questions": [
+          {
+            "question_id": "q1",
+            "subject": "Physics",
+            "topic": "Mechanics",
+            "difficulty": "medium",
+            "question_text": "A ball is thrown vertically upward with velocity 20 m/s. What is the maximum height reached?",
+            "options": ["10m", "20m", "30m", "40m"],
+            "correct_answer_index": 1
+          }
+        ]
+      }
+    },
+    "submit_test": {
+      "endpoint": "POST /api/diagnostic/test/{test_id}/submit",
+      "description": "Submit diagnostic test answers",
+      "request": {
+        "test_id": "test_jkl012",
+        "child_id": "child_def456",
+        "answers": [
+          {
+            "question_id": "q1",
+            "selected_answer_index": 1,
+            "time_spent_seconds": 45
+          }
+        ],
+        "total_time_spent_minutes": 175
+      },
+      "expected_response": {
+        "submission_id": "sub_mno345",
+        "test_id": "test_jkl012",
+        "score": 145,
+        "total_questions": 200,
+        "correct_answers": 85,
+        "incorrect_answers": 60,
+        "unanswered": 55,
+        "analytics_generated": true,
+        "analytics_id": "analytics_pqr678"
+      }
+    }
+  },
+  "analytics": {
+    "get_analytics": {
+      "endpoint": "GET /api/analytics/{analytics_id}",
+      "description": "Get AI-generated analytics for test",
+      "request": {
+        "analytics_id": "analytics_pqr678"
+      },
+      "expected_response": {
+        "analytics_id": "analytics_pqr678",
+        "overall_score": 145,
+        "percentile": 65,
+        "subject_wise_performance": {
+          "Physics": {
+            "score": 45,
+            "max_score": 120,
+            "percentage": 37.5,
+            "weak_topics": ["Electromagnetism", "Modern Physics"],
+            "strong_topics": ["Mechanics"]
+          },
+          "Chemistry": {
+            "score": 50,
+            "max_score": 120,
+            "percentage": 41.67,
+            "weak_topics": ["Organic Chemistry"],
+            "strong_topics": ["Physical Chemistry"]
+          },
+          "Mathematics": {
+            "score": 50,
+            "max_score": 160,
+            "percentage": 31.25,
+            "weak_topics": ["Calculus", "Coordinate Geometry"],
+            "strong_topics": ["Algebra"]
+          }
+        },
+        "recommendations": [
+          "Focus on Electromagnetism - high weightage, low performance",
+          "Practice Calculus daily - fundamental for JEE",
+          "Strengthen Organic Chemistry concepts"
+        ]
+      }
+    }
+  },
+  "schedule": {
+    "generate_schedule": {
+      "endpoint": "POST /api/schedule/generate",
+      "description": "Generate AI-powered study schedule",
+      "request": {
+        "child_id": "child_def456",
+        "analytics_id": "analytics_pqr678",
+        "exam_date": "2025-05-24",
+        "daily_study_hours": 6,
+        "preferences": {
+          "morning_study": true,
+          "break_duration_minutes": 15,
+          "revision_frequency_days": 7
+        }
+      },
+      "expected_response": {
+        "schedule_id": "schedule_stu901",
+        "total_days": 180,
+        "daily_tasks_count": 180,
+        "subjects_covered": ["Physics", "Chemistry", "Mathematics"],
+        "message": "Schedule generated successfully"
+      }
+    },
+    "get_schedule": {
+      "endpoint": "GET /api/schedule/{schedule_id}",
+      "description": "Get study schedule details",
+      "request": {
+        "schedule_id": "schedule_stu901"
+      },
+      "expected_response": {
+        "schedule_id": "schedule_stu901",
+        "child_id": "child_def456",
+        "daily_schedule": [
+          {
+            "day": 1,
+            "date": "2024-11-26",
+            "tasks": [
+              {
+                "task_id": "task_001",
+                "subject": "Physics",
+                "topic": "Electromagnetism",
+                "subtopic": "Electric Field",
+                "duration_minutes": 90,
+                "task_type": "concept_learning",
+                "resources": ["video_link", "notes_link"],
+                "practice_questions": 10
+              },
+              {
+                "task_id": "task_002",
+                "subject": "Mathematics",
+                "topic": "Calculus",
+                "subtopic": "Limits",
+                "duration_minutes": 90,
+                "task_type": "concept_learning",
+                "resources": ["video_link", "notes_link"],
+                "practice_questions": 15
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "mark_task_complete": {
+      "endpoint": "POST /api/schedule/task/{task_id}/complete",
+      "description": "Mark a schedule task as complete",
+      "request": {
+        "task_id": "task_001",
+        "child_id": "child_def456",
+        "completed": true,
+        "time_spent_minutes": 95,
+        "difficulty_rating": 3,
+        "notes": "Understood the concept well"
+      },
+      "expected_response": {
+        "task_id": "task_001",
+        "completed": true,
+        "next_task_id": "task_002",
+        "progress_percentage": 0.56
+      }
+    }
+  },
+  "practice": {
+    "generate_practice_questions": {
+      "endpoint": "POST /api/practice/generate",
+      "description": "Generate practice questions for a topic",
+      "request": {
+        "child_id": "child_def456",
+        "subject": "Physics",
+        "topic": "Electromagnetism",
+        "difficulty": "medium",
+        "question_count": 20
+      },
+      "expected_response": {
+        "practice_session_id": "practice_vwx234",
+        "questions": [
+          {
+            "question_id": "pq1",
+            "question_text": "Calculate the electric field at point P...",
+            "options": ["Option A", "Option B", "Option C", "Option D"],
+            "correct_answer_index": 2,
+            "explanation": "The electric field is calculated using..."
+          }
+        ]
+      }
+    },
+    "submit_practice_answers": {
+      "endpoint": "POST /api/practice/{practice_session_id}/submit",
+      "description": "Submit practice session answers",
+      "request": {
+        "practice_session_id": "practice_vwx234",
+        "child_id": "child_def456",
+        "answers": [
+          {
+            "question_id": "pq1",
+            "selected_answer_index": 2,
+            "time_spent_seconds": 60
+          }
+        ]
+      },
+      "expected_response": {
+        "practice_session_id": "practice_vwx234",
+        "score": 16,
+        "total_questions": 20,
+        "accuracy": 80,
+        "mastery_level": "good",
+        "feedback": "Good progress! Focus on time management."
+      }
+    }
+  },
+  "payment": {
+    "create_order": {
+      "endpoint": "POST /api/payment/create-order",
+      "description": "Create Razorpay payment order",
+      "request": {
+        "parent_id": "parent_abc123",
+        "plan_type": "premium",
+        "duration_months": 6,
+        "amount": 2999
+      },
+      "expected_response": {
+        "order_id": "order_yz567",
+        "razorpay_order_id": "order_MNOPqrstuvwxyz",
+        "amount": 2999,
+        "currency": "INR",
+        "receipt": "receipt_001"
+      }
+    },
+    "verify_payment": {
+      "endpoint": "POST /api/payment/verify",
+      "description": "Verify Razorpay payment signature",
+      "request": {
+        "order_id": "order_yz567",
+        "razorpay_payment_id": "pay_ABCDefghijklmn",
+        "razorpay_order_id": "order_MNOPqrstuvwxyz",
+        "razorpay_signature": "signature_hash_here"
+      },
+      "expected_response": {
+        "verified": true,
+        "subscription_id": "sub_abc123",
+        "subscription_status": "active",
+        "valid_until": "2025-05-26",
+        "message": "Payment verified and subscription activated"
+      }
+    }
+  },
+  "parent_dashboard": {
+    "get_child_progress": {
+      "endpoint": "GET /api/parent/child/{child_id}/progress",
+      "description": "Get child's learning progress",
+      "request": {
+        "child_id": "child_def456",
+        "parent_id": "parent_abc123"
+      },
+      "expected_response": {
+        "child_id": "child_def456",
+        "child_name": "Rahul Kumar",
+        "overall_progress": 45,
+        "days_studied": 81,
+        "total_days": 180,
+        "current_streak": 7,
+        "longest_streak": 15,
+        "subject_progress": {
+          "Physics": 42,
+          "Chemistry": 48,
+          "Mathematics": 45
+        },
+        "recent_test_scores": [
+          {
+            "test_date": "2024-11-20",
+            "score": 165,
+            "max_score": 360,
+            "percentage": 45.83
+          }
+        ],
+        "weak_areas": ["Electromagnetism", "Calculus", "Organic Chemistry"],
+        "strong_areas": ["Mechanics", "Algebra", "Physical Chemistry"]
+      }
+    },
+    "get_teaching_resources": {
+      "endpoint": "GET /api/parent/teaching-resources",
+      "description": "Get teaching resources for parents",
+      "request": {
+        "parent_id": "parent_abc123",
+        "subject": "Physics",
+        "topic": "Electromagnetism"
+      },
+      "expected_response": {
+        "resources": [
+          {
+            "resource_id": "res_001",
+            "title": "How to Teach Electromagnetism",
+            "content": "Step-by-step guide for parents...",
+            "audio_url": "https://storage.googleapis.com/audio/res_001.mp3",
+            "language": "en",
+            "duration_minutes": 5
+          }
+        ]
+      }
+    }
+  }
+}

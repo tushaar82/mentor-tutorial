@@ -257,14 +257,14 @@ This implementation plan breaks down the creation of the 7-day (extended to 10-d
     - Include deployment commands
     - _Requirements: 13.1, 13.2, 13.3, 13.4, 13.5_
 
-- [ ] 24. Create mock data and testing infrastructure
-  - [ ] 24.1 Create mock data for backend testing
+- [x] 24. Create mock data and testing infrastructure
+  - [x] 24.1 Create mock data for backend testing
     - Create sample-requests.json with example API requests
     - Create test-scripts.py with automated API tests
     - Document how to use mock data for standalone testing
     - _Requirements: 15.1, 15.2, 15.3, 15.4, 15.5, 15.6, 15.7, 15.8, 15.9_
   
-  - [ ] 24.2 Create mock data for frontend testing
+  - [x] 24.2 Create mock data for frontend testing
     - Create mock-api-responses.json with example API responses
     - Create mock-api-server.js with Express mock server
     - Document how to use mock server for standalone testing

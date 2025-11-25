@@ -1,0 +1,762 @@
+{
+  "authentication": {
+    "register_parent_success": {
+      "parent_id": "parent_mock_001",
+      "email": "parent@example.com",
+      "verification_required": true,
+      "message": "Verification email sent"
+    },
+    "register_parent_google_success": {
+      "parent_id": "parent_mock_002",
+      "email": "parent@gmail.com",
+      "verification_required": false,
+      "message": "Registration successful"
+    },
+    "login_success": {
+      "parent_id": "parent_mock_001",
+      "access_token": "mock_jwt_token_abc123xyz789",
+      "refresh_token": "mock_refresh_token_def456uvw012",
+      "expires_in": 3600
+    },
+    "verify_email_success": {
+      "verified": true,
+      "message": "Email verified successfully"
+    },
+    "error_invalid_credentials": {
+      "error": "Invalid email or password",
+      "code": "AUTH_001"
+    },
+    "error_email_exists": {
+      "error": "Email already registered",
+      "code": "AUTH_002"
+    }
+  },
+  "onboarding": {
+    "save_preferences_success": {
+      "success": true,
+      "message": "Preferences saved successfully"
+    },
+    "create_child_profile_success": {
+      "child_id": "child_mock_001",
+      "child_name": "Rahul Kumar",
+      "message": "Child profile created successfully"
+    },
+    "select_exam_success": {
+      "exam_id": "exam_mock_001",
+      "exam_type": "JEE",
+      "days_until_exam": 180,
+      "diagnostic_test_scheduled": true,
+      "diagnostic_test_id": "test_mock_001"
+    },
+    "error_child_limit": {
+      "error": "Maximum one child profile allowed in free plan",
+      "code": "ONBOARD_001"
+    }
+  },
+  "diagnostic_test": {
+    "test_details": {
+      "test_id": "test_mock_001",
+      "exam_type": "JEE",
+      "total_questions": 200,
+      "duration_minutes": 180,
+      "subjects": {
+        "Physics": 60,
+        "Chemistry": 60,
+        "Mathematics": 80
+      },
+      "instructions": [
+        "Each correct answer: +4 marks",
+        "Each incorrect answer: -1 mark",
+        "Unanswered questions: 0 marks",
+        "Total marks: 360",
+        "Time limit: 3 hours"
+      ]
+    },
+    "test_questions": {
+      "test_id": "test_mock_001",
+      "questions": [
+        {
+          "question_id": "q_mock_001",
+          "question_number": 1,
+          "subject": "Physics",
+          "topic": "Mechanics",
+          "subtopic": "Kinematics",
+          "difficulty": "medium",
+          "weightage": 4,
+          "question_text": "A ball is thrown vertically upward with an initial velocity of 20 m/s. What is the maximum height reached by the ball? (Take g = 10 m/s²)",
+          "options": [
+            "10 m",
+            "20 m",
+            "30 m",
+            "40 m"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Using v² = u² - 2gh, at maximum height v = 0. So 0 = 400 - 2(10)h, h = 20m"
+        },
+        {
+          "question_id": "q_mock_002",
+          "question_number": 2,
+          "subject": "Chemistry",
+          "topic": "Physical Chemistry",
+          "subtopic": "Atomic Structure",
+          "difficulty": "easy",
+          "weightage": 4,
+          "question_text": "What is the atomic number of Carbon?",
+          "options": [
+            "4",
+            "6",
+            "8",
+            "12"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Carbon has 6 protons, so its atomic number is 6"
+        },
+        {
+          "question_id": "q_mock_003",
+          "question_number": 3,
+          "subject": "Mathematics",
+          "topic": "Algebra",
+          "subtopic": "Quadratic Equations",
+          "difficulty": "medium",
+          "weightage": 4,
+          "question_text": "Find the roots of the equation x² - 5x + 6 = 0",
+          "options": [
+            "x = 1, 6",
+            "x = 2, 3",
+            "x = -2, -3",
+            "x = 1, 5"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Factoring: (x-2)(x-3) = 0, so x = 2 or x = 3"
+        }
+      ],
+      "total_questions": 200,
+      "current_page": 1,
+      "questions_per_page": 3
+    },
+    "submit_test_success": {
+      "submission_id": "sub_mock_001",
+      "test_id": "test_mock_001",
+      "score": 145,
+      "max_score": 360,
+      "percentage": 40.28,
+      "total_questions": 200,
+      "correct_answers": 85,
+      "incorrect_answers": 60,
+      "unanswered": 55,
+      "time_taken_minutes": 175,
+      "analytics_generated": true,
+      "analytics_id": "analytics_mock_001",
+      "message": "Test submitted successfully. Analytics are being generated."
+    }
+  },
+  "analytics": {
+    "detailed_analytics": {
+      "analytics_id": "analytics_mock_001",
+      "test_id": "test_mock_001",
+      "child_id": "child_mock_001",
+      "overall_score": 145,
+      "max_score": 360,
+      "percentage": 40.28,
+      "percentile": 65,
+      "exam_type": "JEE",
+      "test_date": "2024-11-25",
+      "subject_wise_performance": {
+        "Physics": {
+          "score": 45,
+          "max_score": 120,
+          "percentage": 37.5,
+          "correct": 25,
+          "incorrect": 20,
+          "unanswered": 15,
+          "time_spent_minutes": 55,
+          "weak_topics": [
+            {
+              "topic": "Electromagnetism",
+              "subtopics": ["Electric Field", "Magnetic Field"],
+              "score_percentage": 20,
+              "weightage": 15,
+              "priority": "high"
+            },
+            {
+              "topic": "Modern Physics",
+              "subtopics": ["Photoelectric Effect", "Atomic Structure"],
+              "score_percentage": 25,
+              "weightage": 12,
+              "priority": "high"
+            }
+          ],
+          "strong_topics": [
+            {
+              "topic": "Mechanics",
+              "subtopics": ["Kinematics", "Laws of Motion"],
+              "score_percentage": 85,
+              "weightage": 20
+            }
+          ]
+        },
+        "Chemistry": {
+          "score": 50,
+          "max_score": 120,
+          "percentage": 41.67,
+          "correct": 30,
+          "incorrect": 18,
+          "unanswered": 12,
+          "time_spent_minutes": 58,
+          "weak_topics": [
+            {
+              "topic": "Organic Chemistry",
+              "subtopics": ["Hydrocarbons", "Functional Groups"],
+              "score_percentage": 30,
+              "weightage": 18,
+              "priority": "high"
+            }
+          ],
+          "strong_topics": [
+            {
+              "topic": "Physical Chemistry",
+              "subtopics": ["Atomic Structure", "Chemical Bonding"],
+              "score_percentage": 75,
+              "weightage": 15
+            }
+          ]
+        },
+        "Mathematics": {
+          "score": 50,
+          "max_score": 160,
+          "percentage": 31.25,
+          "correct": 30,
+          "incorrect": 22,
+          "unanswered": 28,
+          "time_spent_minutes": 62,
+          "weak_topics": [
+            {
+              "topic": "Calculus",
+              "subtopics": ["Limits", "Derivatives", "Integration"],
+              "score_percentage": 25,
+              "weightage": 25,
+              "priority": "critical"
+            },
+            {
+              "topic": "Coordinate Geometry",
+              "subtopics": ["Straight Lines", "Circles"],
+              "score_percentage": 30,
+              "weightage": 20,
+              "priority": "high"
+            }
+          ],
+          "strong_topics": [
+            {
+              "topic": "Algebra",
+              "subtopics": ["Quadratic Equations", "Sequences"],
+              "score_percentage": 80,
+              "weightage": 15
+            }
+          ]
+        }
+      },
+      "recommendations": [
+        {
+          "priority": "critical",
+          "subject": "Mathematics",
+          "topic": "Calculus",
+          "reason": "High weightage (25%) with very low performance (25%)",
+          "action": "Focus 2 hours daily on Calculus fundamentals"
+        },
+        {
+          "priority": "high",
+          "subject": "Physics",
+          "topic": "Electromagnetism",
+          "reason": "High weightage (15%) with low performance (20%)",
+          "action": "Practice 20 problems daily on Electric and Magnetic Fields"
+        },
+        {
+          "priority": "high",
+          "subject": "Chemistry",
+          "topic": "Organic Chemistry",
+          "reason": "High weightage (18%) with low performance (30%)",
+          "action": "Study reaction mechanisms and practice naming compounds"
+        }
+      ],
+      "time_management": {
+        "average_time_per_question": 52.5,
+        "recommended_time_per_question": 54,
+        "subjects_needing_speed_improvement": ["Mathematics"],
+        "subjects_with_good_speed": ["Physics", "Chemistry"]
+      },
+      "strengths": [
+        "Strong foundation in Mechanics (Physics)",
+        "Good understanding of Physical Chemistry",
+        "Excellent Algebra skills"
+      ],
+      "areas_for_improvement": [
+        "Calculus concepts need significant work",
+        "Electromagnetism requires more practice",
+        "Organic Chemistry reactions need memorization"
+      ]
+    }
+  },
+  "schedule": {
+    "generated_schedule": {
+      "schedule_id": "schedule_mock_001",
+      "child_id": "child_mock_001",
+      "exam_type": "JEE",
+      "exam_date": "2025-05-24",
+      "total_days": 180,
+      "days_remaining": 180,
+      "daily_study_hours": 6,
+      "total_study_hours": 1080,
+      "created_at": "2024-11-25",
+      "schedule_summary": {
+        "phase_1_foundation": {
+          "days": 60,
+          "focus": "Weak topics and fundamentals",
+          "subjects": ["Mathematics", "Physics", "Chemistry"]
+        },
+        "phase_2_practice": {
+          "days": 80,
+          "focus": "Problem solving and practice",
+          "subjects": ["Mathematics", "Physics", "Chemistry"]
+        },
+        "phase_3_revision": {
+          "days": 40,
+          "focus": "Revision and mock tests",
+          "subjects": ["Mathematics", "Physics", "Chemistry"]
+        }
+      }
+    },
+    "daily_schedule": [
+      {
+        "day": 1,
+        "date": "2024-11-26",
+        "phase": "foundation",
+        "total_study_hours": 6,
+        "tasks": [
+          {
+            "task_id": "task_mock_001",
+            "subject": "Mathematics",
+            "topic": "Calculus",
+            "subtopic": "Limits",
+            "duration_minutes": 90,
+            "task_type": "concept_learning",
+            "priority": "critical",
+            "resources": [
+              {
+                "type": "video",
+                "title": "Introduction to Limits",
+                "url": "https://example.com/video/limits-intro",
+                "duration_minutes": 25
+              },
+              {
+                "type": "notes",
+                "title": "Limits - Theory and Examples",
+                "url": "https://example.com/notes/limits.pdf"
+              }
+            ],
+            "practice_questions": 15,
+            "completed": false
+          },
+          {
+            "task_id": "task_mock_002",
+            "subject": "Physics",
+            "topic": "Electromagnetism",
+            "subtopic": "Electric Field",
+            "duration_minutes": 90,
+            "task_type": "concept_learning",
+            "priority": "high",
+            "resources": [
+              {
+                "type": "video",
+                "title": "Electric Field Basics",
+                "url": "https://example.com/video/electric-field",
+                "duration_minutes": 30
+              }
+            ],
+            "practice_questions": 12,
+            "completed": false
+          },
+          {
+            "task_id": "task_mock_003",
+            "subject": "Chemistry",
+            "topic": "Organic Chemistry",
+            "subtopic": "Hydrocarbons",
+            "duration_minutes": 90,
+            "task_type": "concept_learning",
+            "priority": "high",
+            "resources": [
+              {
+                "type": "video",
+                "title": "Hydrocarbons Classification",
+                "url": "https://example.com/video/hydrocarbons",
+                "duration_minutes": 20
+              }
+            ],
+            "practice_questions": 10,
+            "completed": false
+          },
+          {
+            "task_id": "task_mock_004",
+            "subject": "Mathematics",
+            "topic": "Calculus",
+            "subtopic": "Limits - Practice",
+            "duration_minutes": 90,
+            "task_type": "practice",
+            "priority": "critical",
+            "practice_questions": 25,
+            "completed": false
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "date": "2024-11-27",
+        "phase": "foundation",
+        "total_study_hours": 6,
+        "tasks": [
+          {
+            "task_id": "task_mock_005",
+            "subject": "Mathematics",
+            "topic": "Calculus",
+            "subtopic": "Derivatives",
+            "duration_minutes": 90,
+            "task_type": "concept_learning",
+            "priority": "critical",
+            "resources": [
+              {
+                "type": "video",
+                "title": "Introduction to Derivatives",
+                "url": "https://example.com/video/derivatives",
+                "duration_minutes": 30
+              }
+            ],
+            "practice_questions": 15,
+            "completed": false
+          }
+        ]
+      }
+    ],
+    "mark_task_complete_success": {
+      "task_id": "task_mock_001",
+      "completed": true,
+      "completion_date": "2024-11-26",
+      "time_spent_minutes": 95,
+      "next_task_id": "task_mock_002",
+      "progress_percentage": 0.56,
+      "message": "Great job! Keep up the momentum."
+    },
+    "schedule_progress": {
+      "schedule_id": "schedule_mock_001",
+      "total_days": 180,
+      "days_completed": 81,
+      "days_remaining": 99,
+      "progress_percentage": 45,
+      "current_streak": 7,
+      "longest_streak": 15,
+      "total_tasks": 720,
+      "completed_tasks": 324,
+      "pending_tasks": 396,
+      "on_track": true,
+      "missed_days": 3,
+      "makeup_tasks": 12
+    }
+  },
+  "practice": {
+    "practice_session": {
+      "practice_session_id": "practice_mock_001",
+      "subject": "Physics",
+      "topic": "Electromagnetism",
+      "subtopic": "Electric Field",
+      "difficulty": "medium",
+      "total_questions": 20,
+      "questions": [
+        {
+          "question_id": "pq_mock_001",
+          "question_number": 1,
+          "question_text": "Two point charges +2μC and -3μC are placed 10cm apart. Calculate the electric field at the midpoint.",
+          "options": [
+            "9 × 10⁵ N/C",
+            "1.8 × 10⁶ N/C",
+            "3.6 × 10⁶ N/C",
+            "7.2 × 10⁶ N/C"
+          ],
+          "difficulty": "medium",
+          "hint": "Electric field due to both charges will add up at midpoint"
+        },
+        {
+          "question_id": "pq_mock_002",
+          "question_number": 2,
+          "question_text": "What is the SI unit of electric field?",
+          "options": [
+            "N/C",
+            "C/N",
+            "V/m",
+            "Both A and C"
+          ],
+          "difficulty": "easy",
+          "hint": "Think about force per unit charge"
+        }
+      ]
+    },
+    "submit_practice_success": {
+      "practice_session_id": "practice_mock_001",
+      "score": 16,
+      "total_questions": 20,
+      "correct_answers": 16,
+      "incorrect_answers": 4,
+      "accuracy": 80,
+      "time_spent_minutes": 25,
+      "average_time_per_question": 75,
+      "mastery_level": "good",
+      "mastery_percentage": 80,
+      "feedback": "Good progress! Focus on time management to improve speed.",
+      "detailed_results": [
+        {
+          "question_id": "pq_mock_001",
+          "correct": true,
+          "selected_answer_index": 3,
+          "correct_answer_index": 3,
+          "time_spent_seconds": 90,
+          "explanation": "Electric field at midpoint = E1 + E2 = k(2μC)/(0.05)² + k(3μC)/(0.05)² = 7.2 × 10⁶ N/C"
+        },
+        {
+          "question_id": "pq_mock_002",
+          "correct": true,
+          "selected_answer_index": 3,
+          "correct_answer_index": 3,
+          "time_spent_seconds": 30,
+          "explanation": "Electric field can be expressed as N/C (force per charge) or V/m (voltage per distance)"
+        }
+      ],
+      "next_recommendation": {
+        "topic": "Electromagnetism",
+        "subtopic": "Magnetic Field",
+        "reason": "You've mastered Electric Field. Time to move to Magnetic Field."
+      }
+    }
+  },
+  "payment": {
+    "create_order_success": {
+      "order_id": "order_mock_001",
+      "razorpay_order_id": "order_MNOPqrstuvwxyz123",
+      "amount": 2999,
+      "currency": "INR",
+      "receipt": "receipt_mock_001",
+      "status": "created",
+      "created_at": "2024-11-25T10:30:00Z"
+    },
+    "verify_payment_success": {
+      "verified": true,
+      "payment_id": "pay_ABCDefghijklmn123",
+      "order_id": "order_mock_001",
+      "subscription_id": "sub_mock_001",
+      "subscription_status": "active",
+      "plan_type": "premium",
+      "valid_from": "2024-11-25",
+      "valid_until": "2025-05-25",
+      "features_unlocked": [
+        "Unlimited practice questions",
+        "Advanced analytics",
+        "Parent teaching resources",
+        "Priority support",
+        "Multiple child profiles"
+      ],
+      "message": "Payment verified successfully. Premium features activated!"
+    },
+    "subscription_details": {
+      "subscription_id": "sub_mock_001",
+      "parent_id": "parent_mock_001",
+      "plan_type": "premium",
+      "status": "active",
+      "amount_paid": 2999,
+      "currency": "INR",
+      "valid_from": "2024-11-25",
+      "valid_until": "2025-05-25",
+      "days_remaining": 181,
+      "auto_renewal": false,
+      "payment_method": "razorpay",
+      "features": [
+        "Unlimited practice questions",
+        "Advanced analytics",
+        "Parent teaching resources",
+        "Priority support",
+        "Multiple child profiles"
+      ]
+    }
+  },
+  "parent_dashboard": {
+    "child_progress": {
+      "child_id": "child_mock_001",
+      "child_name": "Rahul Kumar",
+      "age": 17,
+      "grade": 12,
+      "exam_type": "JEE",
+      "exam_date": "2025-05-24",
+      "days_until_exam": 180,
+      "overall_progress": 45,
+      "days_studied": 81,
+      "total_days": 180,
+      "current_streak": 7,
+      "longest_streak": 15,
+      "total_study_hours": 486,
+      "average_daily_hours": 6,
+      "subject_progress": {
+        "Physics": {
+          "progress_percentage": 42,
+          "topics_completed": 15,
+          "total_topics": 36,
+          "current_topic": "Electromagnetism",
+          "last_practice_score": 75,
+          "trend": "improving"
+        },
+        "Chemistry": {
+          "progress_percentage": 48,
+          "topics_completed": 18,
+          "total_topics": 38,
+          "current_topic": "Organic Chemistry",
+          "last_practice_score": 70,
+          "trend": "stable"
+        },
+        "Mathematics": {
+          "progress_percentage": 45,
+          "topics_completed": 20,
+          "total_topics": 45,
+          "current_topic": "Calculus",
+          "last_practice_score": 65,
+          "trend": "improving"
+        }
+      },
+      "recent_test_scores": [
+        {
+          "test_id": "test_mock_001",
+          "test_type": "diagnostic",
+          "test_date": "2024-11-25",
+          "score": 145,
+          "max_score": 360,
+          "percentage": 40.28
+        },
+        {
+          "test_id": "test_mock_002",
+          "test_type": "practice",
+          "test_date": "2024-11-20",
+          "score": 165,
+          "max_score": 360,
+          "percentage": 45.83
+        }
+      ],
+      "weak_areas": [
+        {
+          "subject": "Mathematics",
+          "topic": "Calculus",
+          "score_percentage": 25,
+          "priority": "critical"
+        },
+        {
+          "subject": "Physics",
+          "topic": "Electromagnetism",
+          "score_percentage": 20,
+          "priority": "high"
+        },
+        {
+          "subject": "Chemistry",
+          "topic": "Organic Chemistry",
+          "score_percentage": 30,
+          "priority": "high"
+        }
+      ],
+      "strong_areas": [
+        {
+          "subject": "Physics",
+          "topic": "Mechanics",
+          "score_percentage": 85
+        },
+        {
+          "subject": "Mathematics",
+          "topic": "Algebra",
+          "score_percentage": 80
+        },
+        {
+          "subject": "Chemistry",
+          "topic": "Physical Chemistry",
+          "score_percentage": 75
+        }
+      ],
+      "upcoming_tasks": [
+        {
+          "date": "2024-11-26",
+          "subject": "Mathematics",
+          "topic": "Calculus - Derivatives",
+          "duration_minutes": 90
+        },
+        {
+          "date": "2024-11-26",
+          "subject": "Physics",
+          "topic": "Electromagnetism - Magnetic Field",
+          "duration_minutes": 90
+        }
+      ]
+    },
+    "teaching_resources": {
+      "subject": "Physics",
+      "topic": "Electromagnetism",
+      "resources": [
+        {
+          "resource_id": "res_mock_001",
+          "title": "How to Teach Electromagnetism to Your Child",
+          "description": "A comprehensive guide for parents to help their children understand electric and magnetic fields",
+          "content": "# Teaching Electromagnetism\n\n## Key Concepts\n1. Electric Field - Force per unit charge\n2. Magnetic Field - Force on moving charges\n\n## Simple Explanations\n- Use everyday examples like static electricity\n- Demonstrate with magnets\n\n## Practice Problems\n- Start with simple calculations\n- Gradually increase difficulty",
+          "audio_url": "https://storage.googleapis.com/mock-audio/res_001.mp3",
+          "language": "en",
+          "duration_minutes": 5,
+          "difficulty_level": "beginner",
+          "tips": [
+            "Use visual aids and diagrams",
+            "Relate concepts to real-world applications",
+            "Practice numerical problems together",
+            "Encourage questions and discussions"
+          ]
+        },
+        {
+          "resource_id": "res_mock_002",
+          "title": "Common Mistakes in Electromagnetism",
+          "description": "Learn about common mistakes students make and how to avoid them",
+          "content": "# Common Mistakes\n\n1. Confusing electric and magnetic fields\n2. Wrong sign conventions\n3. Unit conversion errors",
+          "audio_url": "https://storage.googleapis.com/mock-audio/res_002.mp3",
+          "language": "en",
+          "duration_minutes": 3,
+          "difficulty_level": "intermediate"
+        }
+      ]
+    },
+    "parent_insights": {
+      "child_id": "child_mock_001",
+      "insights": [
+        {
+          "type": "strength",
+          "message": "Rahul shows excellent understanding of Mechanics. Encourage him to maintain this strength.",
+          "icon": "✓"
+        },
+        {
+          "type": "concern",
+          "message": "Calculus needs immediate attention. Consider spending extra time on this topic.",
+          "icon": "⚠"
+        },
+        {
+          "type": "suggestion",
+          "message": "Current study streak of 7 days is great! Encourage consistency to reach the target of 15 days.",
+          "icon": "💡"
+        },
+        {
+          "type": "milestone",
+          "message": "Rahul has completed 45% of the syllabus. On track for the exam!",
+          "icon": "🎯"
+        }
+      ],
+      "recommended_actions": [
+        "Review Calculus concepts together using parent teaching resources",
+        "Encourage daily practice of 25 problems in weak areas",
+        "Celebrate the 7-day study streak to maintain motivation",
+        "Schedule a mock test in 2 weeks to track progress"
+      ]
+    }
+  }
+}

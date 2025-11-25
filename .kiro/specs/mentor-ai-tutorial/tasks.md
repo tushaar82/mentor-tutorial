@@ -226,8 +226,8 @@ This implementation plan breaks down the creation of the 7-day (extended to 10-d
     - Write TROUBLESHOOTING.md with Cloud Run issues
     - _Requirements: All backend requirements_
 
-- [ ] 21. Create Day 10 tutorial - Firebase Hosting deployment (Frontend)
-  - [ ] 21.1 Create day-10-firebase-hosting-deployment folder for Vaishnavi
+- [x] 21. Create Day 10 tutorial - Firebase Hosting deployment (Frontend)
+  - [x] 21.1 Create day-10-firebase-hosting-deployment folder for Vaishnavi
     - Write README.md explaining Firebase Hosting, build process, CDN
     - Write PROMPTS.md with prompts for build configuration
     - Write CONFIGURATION.md with Firebase Hosting setup

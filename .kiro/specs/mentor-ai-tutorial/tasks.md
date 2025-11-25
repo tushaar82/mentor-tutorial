@@ -158,8 +158,8 @@ This implementation plan breaks down the creation of the 7-day (extended to 10-d
     - Write TROUBLESHOOTING.md with Gemini API issues
     - _Requirements: 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9_
 
-- [-] 15. Create Day 7 tutorial - Practice module UI (Frontend)
-  - [-] 15.1 Create day-07-practice-module folder for Vaishnavi
+- [x] 15. Create Day 7 tutorial - Practice module UI (Frontend)
+  - [x] 15.1 Create day-07-practice-module folder for Vaishnavi
     - Write README.md explaining practice interface, feedback, mastery tracking
     - Write PROMPTS.md with prompts for practice components
     - Write CONFIGURATION.md with practice state management
@@ -169,8 +169,8 @@ This implementation plan breaks down the creation of the 7-day (extended to 10-d
     - Write TROUBLESHOOTING.md with practice UI issues
     - _Requirements: 4.1, 4.2, 4.3, 4.4, 4.5, 10.1, 10.2, 10.3, 10.4, 10.5_
 
-- [ ] 16. Create Day 8 tutorial - Schedule generation (Backend)
-  - [ ] 16.1 Create day-08-schedule-generation folder for Tushar
+- [-] 16. Create Day 8 tutorial - Schedule generation (Backend)
+  - [-] 16.1 Create day-08-schedule-generation folder for Tushar
     - Write README.md explaining Gemini schedule generation, priorities, adaptive rescheduling
     - Write PROMPTS.md with prompts for advanced scheduler
     - Write CONFIGURATION.md with scheduler setup

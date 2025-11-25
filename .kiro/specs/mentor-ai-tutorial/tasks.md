@@ -215,8 +215,8 @@ This implementation plan breaks down the creation of the 7-day (extended to 10-d
     - Write TROUBLESHOOTING.md with payment UI issues
     - _Requirements: 6.1, 6.2, 6.3, 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 6.11, 6.12_
 
-- [ ] 20. Create Day 10 tutorial - Cloud Run deployment (Backend)
-  - [ ] 20.1 Create day-10-cloud-run-deployment folder for Tushar
+- [x] 20. Create Day 10 tutorial - Cloud Run deployment (Backend)
+  - [x] 20.1 Create day-10-cloud-run-deployment folder for Tushar
     - Write README.md explaining Google Cloud Run, Docker, CI/CD
     - Write PROMPTS.md with prompts for Dockerfile and cloudbuild.yaml
     - Write CONFIGURATION.md with GCP project setup and Cloud Run service
